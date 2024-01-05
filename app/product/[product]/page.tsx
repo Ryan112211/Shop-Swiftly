@@ -16,7 +16,9 @@ export default async function Product({ params }: HomeProps) {
         </div>
       ) : (
         <div className="flex items-center justify-center mb-4">
-          <h1 className="text-2xl font-bold text-gray-700">No product found</h1>
+          <h1 className="text-2xl font-bold text-gray-700 dark:text-white">
+            No product found
+          </h1>
         </div>
       )}
     </main>

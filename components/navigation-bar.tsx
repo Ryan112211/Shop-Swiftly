@@ -12,8 +12,6 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import Image from "next/image";
-import { Button } from "./ui/button";
-import { ShoppingCartIcon } from "lucide-react";
 import { SearchInput } from "./search-input";
 import { ModeToggle } from "./theme-toggle";
 import { useRouter } from "next/navigation";
@@ -30,7 +28,7 @@ export function NavigationMenuSwift({ categories }: { categories: any[] }) {
             onClick={() => router.push("/")}
           >
             <Image
-              src="/icons/shopLogo.png"
+              src="/icons/shopLogoOrange.png"
               width="258"
               height="59"
               alt="logo"

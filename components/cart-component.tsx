@@ -74,7 +74,7 @@ export function CartComponent() {
             {!!cartItems.length ? (
               cartItems?.map((item) => (
                 <div
-                  className="grid grid-cols-5 gap-4 px-2 py-2 border-b border-gray-200"
+                  className="grid grid-cols-5 gap-4 px-2 py-2 border-b border-orange-700 items-center"
                   key={item?.id}
                 >
                   <Image
@@ -97,6 +97,7 @@ export function CartComponent() {
                   />
                   <Button
                     variant="destructive"
+                    className="w-20 mx-auto"
                     onClick={() => handleDelete(item?.id)}
                   >
                     <Trash2Icon size={16} />
@@ -105,7 +106,7 @@ export function CartComponent() {
               ))
             ) : (
               <div className="flex items-center justify-center mb-4">
-                <h1 className="text-2xl font-bold text-gray-700">
+                <h1 className="text-2xl font-bold text-gray-700 dark:text-white">
                   No Items in Cart
                 </h1>
               </div>
@@ -119,26 +120,34 @@ export function CartComponent() {
             <div className="flex flex-end items-center justify-end gap-4 px-10 py-2 ">
               <Label className="text-sm font-bold">Total Price</Label>
               <Label className="text-sm font-bold">
-                {cartItems?.reduce(
-                  (acc, item) => acc + item?.price * item?.quantity,
-                  0
-                )}
+                {cartItems
+                  ?.reduce((acc, item) => acc + item?.price * item?.quantity, 0)
+                  .toLocaleString("en-US", {
+                    style: "currency",
+                    currency: "USD",
+                  })}{" "}
               </Label>
             </div>
-            <div className="flex flex-end items-center justify-end gap-4 px-10 py-2 border-b border-gray-200">
-              <Label className="text-sm font-bold text-green-400">
+            <div className="flex flex-end items-center justify-end gap-4 px-10 py-2 border-b border-orange-500">
+              <Label className="text-sm font-bold text-orange-400">
                 Discount
               </Label>
-              <Label className="text-sm font-bold text-green-400">
-                {totalDiscount}
+              <Label className="text-sm font-bold text-orange-400">
+                {totalDiscount.toLocaleString("en-US", {
+                  style: "currency",
+                  currency: "USD",
+                })}{" "}
               </Label>
             </div>
-            <div className="flex flex-end items-center justify-end gap-4 px-10 py-2 border-b border-gray-200">
+            <div className="flex flex-end items-center justify-end gap-4 px-10 py-2 border-b border-orange-500">
               <Label className="text-sm font-bold ">
                 Total Price After Discount
               </Label>
               <Label className="text-sm font-bold">
-                {totalPriceWithDiscount}
+                {totalPriceWithDiscount.toLocaleString("en-US", {
+                  style: "currency",
+                  currency: "USD",
+                })}{" "}
               </Label>
             </div>
           </SheetDescription>
