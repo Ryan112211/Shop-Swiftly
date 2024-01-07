@@ -35,8 +35,6 @@ export function CarouselProduct({ product }: ProductProps) {
             src={product?.thumbnail}
             width={800}
             height={400}
-            objectFit="cover"
-            sizes="100vw"
             alt="product"
           />
         </div>

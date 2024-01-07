@@ -1,10 +1,11 @@
+"use client";
+
 import { Cart } from "@/@types";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
   Sheet,
-  SheetClose,
   SheetContent,
   SheetDescription,
   SheetFooter,
@@ -87,7 +88,10 @@ export function CartComponent() {
                     {item?.title}
                   </Label>
                   <Label className="text-sm font-bold">
-                    {item?.price * item?.quantity}
+                    {(item?.price * item?.quantity).toLocaleString("en-US", {
+                      style: "currency",
+                      currency: "USD",
+                    })}{" "}
                   </Label>
                   <Input
                     type="number"

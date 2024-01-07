@@ -11,8 +11,6 @@ export function SearchInput() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
-  // Get a new searchParams string by merging the current
-  // searchParams with a provided key/value pair
   const createQueryString = useCallback(
     (name: string, value: string) => {
       const params = new URLSearchParams(searchParams);
@@ -42,6 +40,11 @@ export function SearchInput() {
         placeholder="Search..."
         value={search}
         onChange={handleChange}
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            handleSearch();
+          }
+        }}
       />
       <Button onClick={handleSearch}>
         <SearchIcon size={16} />
