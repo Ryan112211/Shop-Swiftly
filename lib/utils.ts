@@ -7,7 +7,9 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export async function getCategories() {
-  const res = await fetch("https://dummyjson.com/products/categories");
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/products/categories`
+  );
 
   if (!res.ok) {
     throw new Error("Failed to fetch data");
@@ -20,7 +22,7 @@ export async function getProducts(page: number, limit: number, q: string) {
   const offset = (page - 1) * limit || 0;
 
   const res = await fetch(
-    `https://dummyjson.com/products/search?q=${q}&limit=${limit}&skip=${offset}`
+    `${process.env.NEXT_PUBLIC_API_URL}/products/search?q=${q}&limit=${limit}&skip=${offset}`
   );
 
   if (!res.ok) {
@@ -32,7 +34,7 @@ export async function getProducts(page: number, limit: number, q: string) {
 
 export async function getCategoryProducts(category: string) {
   const res = await fetch(
-    `https://dummyjson.com/products/category/${category}`
+    `${process.env.NEXT_PUBLIC_API_URL}/products/category/${category}`
   );
 
   if (!res.ok) {
@@ -43,7 +45,7 @@ export async function getCategoryProducts(category: string) {
 }
 
 export async function getProduct(id: string) {
-  const res = await fetch(`https://dummyjson.com/product/${id}`);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/product/${id}`);
 
   if (!res.ok) {
     throw new Error("Failed to fetch data");

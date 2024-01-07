@@ -7,9 +7,8 @@ interface HomeProps {
 }
 
 export default async function CategoryProduct({ params }: HomeProps) {
-  console.log(params);
   const products = await getCategoryProducts(params?.category);
-  console.log(products);
+
   return (
     <main>
       {products?.products?.length ? (

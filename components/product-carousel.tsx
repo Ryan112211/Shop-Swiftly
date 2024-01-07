@@ -33,14 +33,14 @@ export function CarouselProduct({ product }: ProductProps) {
         <div className="container-full content-start mx-4 my-2">
           <Image
             src={product?.thumbnail}
-            width={0}
-            height={0}
+            width={800}
+            height={400}
+            objectFit="cover"
             sizes="100vw"
             alt="product"
-            style={{ width: "402px", height: "auto" }}
           />
         </div>
-        <div className="grid grid-cols-2 gap-4 md:grid-cols-2 lg:grid-cols-4 items-center">
+        <div className="grid grid-cols-2 gap-4 md:grid-cols-2 lg:grid-cols-4 items-center justify-center">
           {product?.images?.map((image) => (
             <div className="w-full relative" key={image}>
               <Zoom>
@@ -68,15 +68,9 @@ export function CarouselProduct({ product }: ProductProps) {
           <h1 className="text-2xl md:4xl lg:text-6xl capitalize font-bold text-gray-700 dark:text-white">
             {product?.title}
           </h1>
-          <h1 className="text-sm font-bold text-gray-500">
-            Brand : {product?.brand}
-          </h1>
-          <h1 className="text-sm font-bold capitalize text-gray-500">
-            Category : {product?.category}
-          </h1>
           <div className="flex items-center ">
             <svg
-              className="w-5 h-5 text-yellow-300 me-1"
+              className="w-5 h-5 text-orange-300 me-1"
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="currentColor"
@@ -84,11 +78,24 @@ export function CarouselProduct({ product }: ProductProps) {
             >
               <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
             </svg>
-            <p className="ms-2 text-sm font-bold text-gray-900 dark:text-white">
+            <p className="ms-2 text-md font-bold text-orange-500">
               {product.rating}
             </p>
           </div>
-          <h1 className="text-sm font-bold text-gray-500">
+          <h1 className="text-md font-bold text-orange-500">
+            Brand :
+            <span className="text-gray-700 pl-2 uppercase dark:text-white">
+              {product?.brand}
+            </span>
+          </h1>
+          <h1 className="text-md font-bold  text-orange-500">
+            Category :{" "}
+            <span className="text-gray-700 pl-2 uppercase dark:text-white">
+              {product?.category}
+            </span>
+          </h1>
+
+          <h1 className="text-md font-bold text-orange-500">
             {product?.stock} items in stock
           </h1>
 
@@ -98,7 +105,12 @@ export function CarouselProduct({ product }: ProductProps) {
               currency: "USD",
             })}
           </h1>
-          <p className="text-gray-500">{product?.description}</p>
+          <h1 className="text-xl font-bold text-orange-500">
+            Product Description
+          </h1>
+          <p className="text-gray-700 font-bold dark:text-white">
+            {product?.description}
+          </p>
         </div>
       </div>
     </div>

@@ -12,7 +12,7 @@ export default async function Home({ searchParams }: HomeProps) {
     10,
     searchParams.search || ""
   );
-  console.log(products.total);
+
   return (
     <main>
       {products?.products?.length ? (
